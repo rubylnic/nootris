@@ -11,6 +11,7 @@ window.addEventListener('DOMContentLoaded', () => {
   // ---------------------------------
 
   iosVhFix();
+  closeMenu();
 
   // Modules
   // ---------------------------------
@@ -41,13 +42,15 @@ window.addEventListener('DOMContentLoaded', () => {
 // url до иконок пинов карты, настройки автопрокрутки слайдера, url к json и т.д.
 
 // для адаптивного JS используейтся matchMedia и addListener
-// const breakpoint = window.matchMedia(`(min-width:1024px)`);
-// const breakpointChecker = () => {
-//   if (breakpoint.matches) {
-//   } else {
-//   }
-// };
-// breakpoint.addListener(breakpointChecker);
-// breakpointChecker();
+
 
 // используйте .closest(el)
+function closeMenu() {
+  var openBtn = document.querySelector('[data-open-nav]');
+  var nav = document.querySelector('[data-nav]');
+  openBtn.addEventListener('click', function(){
+    nav.classList.toggle('is-hidden-mobile');
+    this.classList.toggle('is-closed');
+  })
+
+}

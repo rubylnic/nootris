@@ -14,7 +14,9 @@
     "dev": "cross-env NODE_ENV=production gulp dev",
     "start": "cross-env NODE_ENV=development gulp start",
     "imagemin": "gulp imagemin",
-    "webp": "gulp webp"
+    "webp": "gulp webp",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "editorconfig-cli": [
     "*.json",

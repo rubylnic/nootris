@@ -1,0 +1,23 @@
+mixin order()
+
+  .order
+    .container
+      h2.order__title Получи защиту иммунитета
+        span.order__title-highlight со скидкой -15% первым!
+      p.order__price
+        span.order__price-old 750₽
+        span.order__price-new 690₽
+      .order__items
+        .order__item
+          +img("content", "ginger", "png", 193, 168, "Имбирь")
+          .order__subtitle Содержит
+            span.order__subtitle-highlight имбирь
+        .order__item.order__item--big
+          +img("content", "tube", "png", 480, 160, "Имбирь")
+          h3.order__subtitle + Бесплатная доставка
+            span.order__subtitle-highlight Специальная цена
+        .order__item
+          +img("content", "virus", "png", 192, 160, "Имбирь")
+          h3.order__subtitle Нейтрализует
+            span.order__subtitle-highlight вирусы
+      button.order__button.btn Оформить заказ!

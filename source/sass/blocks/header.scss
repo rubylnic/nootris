@@ -1,13 +1,57 @@
 .header {
-  padding: 28px 0;
+  padding: 23px 0;
 
-  background-color: $color-neon-blue;
+  background-color: $color-default-black;
+  z-index: 1;
 
   .container {
     display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 76px;
   }
 
   &__logo {
     color: $color-default-white;
+  }
+}
+.header__logo {
+  display: flex;
+  align-items: center;
+  margin-right: 45px;
+}
+.header__cart {
+  position: relative;
+  &-number {
+    position: absolute;
+    bottom:0;
+    right: -6px;
+    width: 16px;
+    height: 16px;
+    background-color: $color-orange;
+    font-size: 12px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  transition: all 0.3s ease-in;
+    &:hover,
+    &:focus {
+      opacity: 0.7;
+    }
+}
+@include vp-1409 {
+  .header__logo {
+    margin-right: 0;
+  }
+  .header .container {
+    gap: 10px;
+    justify-content: space-between;
+  }
+}
+@include vp-1279 {
+  .main-nav__item {
+    font-size: 16px;
   }
 }

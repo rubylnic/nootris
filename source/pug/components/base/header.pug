@@ -2,35 +2,56 @@ mixin header(headerMods, currentUrl)
   -
     const headerLinks = [
       {
-        href: "index.html",
-        text: "Главная"
+        href: "#",
+        text: "FAQ"
       },
       {
         href: "#",
-        text: "Страница 2"
+        text: "Оплата и доставка"
       },
-      {
+       {
         href: "#",
-        text: "Страница 3"
+        text: "Возврат"
       },
+       {
+        href: "#",
+        text: "Исследования"
+      },
+       {
+        href: "#",
+        text: "Личный кабинет"
+      },
+       {
+        href: "tel:88006000990",
+        text: "8 8 (800) 600-09-90"
+      }
     ]
 
   header.header(class=headerMods)
     .container
       if(currentUrl === "index.html")
         //- lighthouse снимает 10 баллов SEO за <a> без href
-        span.header__logo Логотип
+        span.header__logo
+          <svg width="120" height="35">
+            <use xlink:href="img/sprite.svg#icon-logo"></use>
+          </svg>
       else
-        a.header__logo(href="index.html", aria-label="Переход на главную") Логотип
+        a.header__logo(href="index.html", aria-label="Переход на главную")
+          +icon("icon-logo", 120, 35)
       nav.main-nav
-        button.main-nav__toggle.btn-reset(type="button", aria-label="Переключатель отображения меню", aria-pressed="false")
-          +icon("icon-burger", 20, 20)
-        .main-nav__wrapper
-          ul.main-nav__list
-            each link in headerLinks
-              - const activeState = currentUrl === link.href
-              li.main-nav__item
-                if(activeState)
-                  span.main-nav__link.is-active=link.text
-                else
-                  a.main-nav__link(href=link.href)=link.text
+        button(class="hamburger" data-open-nav)
+          span.bar.bar1
+          span.bar.bar2
+          span.bar.bar3
+          span.bar.bar4
+        ul(class="main-nav__list is-hidden-mobile" data-nav)
+          each link in headerLinks
+            - const activeState = currentUrl === link.href
+            li.main-nav__item
+              if(activeState)
+                span.main-nav__link.is-active=link.text
+              else
+                a.main-nav__link(href=link.href)=link.text
+      a.header__cart(href="#")
+        +icon("icon-cart", 32, 32)
+        .header__cart-number 1

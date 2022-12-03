@@ -1,20 +1,18 @@
 .main-nav {
+  margin-right: 30px;
   &__list {
     display: flex;
     margin: 0;
-    margin-right: 20px;
-    margin-left: 60px;
     padding: 0;
 
     list-style: none;
-  }
-
-  &__item {
-    margin-right: 20px;
+    gap: 50px;
   }
 
   &__link {
     color: $color-default-white;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
 
     &.is-active {
       opacity: 0.6;
@@ -23,5 +21,43 @@
 
   &__toggle {
     display: none;
+  }
+  &__item {
+    transition: all 0.3s ease-in;
+    &:hover,
+    &:focus {
+      opacity: 0.7;
+    }
+  }
+}
+@include vp-1279 {
+  .main-nav__list {
+    gap: 20px;
+  }
+}
+@include vp-1409 {
+  .main-nav {
+    margin-right: 0;
+  }
+  .main-nav__list {
+    gap: 20px;
+  }
+}
+@include vp-1023 {
+  .main-nav__list {
+    position: absolute;
+    top:84px;
+    left: 0;
+    background: $color-default-black;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    padding-bottom: 15px;
+    transition:all 0.4s ease-in;
+    opacity: 1;
+    &.is-hidden-mobile {
+      left: -100%;
+      opacity: 0;
+    }
   }
 }
